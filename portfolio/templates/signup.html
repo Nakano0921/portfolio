@@ -1,0 +1,14 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Signup Page</h3>
+<form action='/signup' method='POST'>
+  {{form.crsf_token}}
+  {{render_field(form.restaurant)}}
+  {{render_field(form.email)}}
+  {{render_field(form.password)}}
+  {{render_field(form.password_confirm)}}
+  {{form.submit}}
+</form>
+{% endblock %}

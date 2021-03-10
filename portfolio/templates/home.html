@@ -1,0 +1,19 @@
+{% from "_formhelpers.html" import render_field %}
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Welcome My Portfolio!!</h3>
+{% for message in get_flashed_messages() %}
+{{ message }}
+{% endfor %}
+<form action='/' method='POST'>
+  {{form.crsf_token}}
+  {{render_field(form.email)}}
+  {{render_field(form.password)}}
+  {{form.submit}}
+</form>
+<ul class="nav">
+  <p>新規登録がまだの方は先に新規登録をして下さい。</p>
+  <li><a href="{{url_for('app.signup')}}">新規登録</a></li>
+</ul>
+{% endblock %}
